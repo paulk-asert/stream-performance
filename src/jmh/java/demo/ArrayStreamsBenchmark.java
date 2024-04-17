@@ -33,10 +33,21 @@ public class ArrayStreamsBenchmark {
     public void arrayMaxAbs(Blackhole bh) {
         bh.consume(ArrayMax.maxAbs(numbers));
     }
-    @Benchmark
-    public void arrayMaxAbs2(Blackhole bh) {
-        bh.consume(ArrayMax.maxAbs2(numbers));
-    }
+
+//    @Benchmark
+//    public void arrayMaxAbs2(Blackhole bh) {
+//        bh.consume(ArrayMax.maxAbs2(numbers));
+//    }
+
+//    @Benchmark
+//    public void arrayMaxAbs3(Blackhole bh) {
+//        bh.consume(ArrayMax.maxAbs3(numbers));
+//    }
+
+//    @Benchmark
+//    public void arrayMaxAbs2(Blackhole bh) {
+//        bh.consume(ArrayMax.maxAbs2(numbers));
+//    }
 
     @Benchmark
     public void streamsMax(Blackhole bh) {
@@ -47,6 +58,17 @@ public class ArrayStreamsBenchmark {
     public void streamsMaxAbs(Blackhole bh) {
         bh.consume(StreamsMax.maxAbs(numbers));
     }
+
+//    @Benchmark
+//    public void streamsMaxAbs2(Blackhole bh) {
+//        bh.consume(StreamsMax.maxAbs2(numbers));
+//    }
+
+//    @Benchmark
+//    public void streamsMaxAbs3(Blackhole bh) {
+//        bh.consume(StreamsMax.maxAbs3(numbers));
+//    }
+
     @Benchmark
     public void javaStreamsMax(Blackhole bh) {
         bh.consume(JavaStreamsMax.max(numbers));

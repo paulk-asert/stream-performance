@@ -17,7 +17,7 @@
 plugins {
     id 'java-library'
     id 'groovy'
-    id 'me.champeau.jmh' version '0.7.0'
+    id 'me.champeau.jmh' version '0.7.2'
 }
 
 repositories {
@@ -33,24 +33,6 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-}
-
-sourceSets {
-    main {
-        java {
-            if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
-                exclude '**/JavaRecordLabel.java'
-                exclude '**/JavaRecordLabelUpper.java'
-            }
-        }
-    }
-    test {
-        java {
-            if (!JavaVersion.current().isCompatibleWith(JavaVersion.VERSION_16)) {
-                exclude '**/JavaHashCodeAndEqualsTest.java'
-            }
-        }
-    }
 }
 
 jmh {
