@@ -22,16 +22,46 @@ import org.openjdk.jmh.infra.Blackhole;
 
 @State(Scope.Benchmark)
 public class ArrayStreamsBenchmark {
-    private static final int[] numbers = {10, 20, 15, 30, 5};
+    private static final int[] five = {10, 20, 15, 30, 5};
+    private static final int[] ninety = {
+        10, 20, 15, 30, 5,
+        -10, -20, -15, -30, -5,
+        210, 220, 215, 230, 25,
+        -210, -220, -215, -230, -25,
+        110, 120, 115, 130, 15,
+        -110, -120, -115, -130, -15,
+        10, 20, 15, 30, 5,
+        -10, -20, -15, -30, -5,
+        210, 220, 215, 230, 25,
+        -210, -220, -215, -230, -25,
+        110, 120, 115, 130, 15,
+        -110, -120, -115, -130, -15,
+        10, 20, 15, 30, 5,
+        -10, -20, -15, -30, -5,
+        210, 220, 215, 230, 25,
+        -210, -220, -215, -230, -25,
+        110, 120, 115, 130, 15,
+        -110, -120, -115, -130, -15
+    };
 
     @Benchmark
-    public void arrayMax(Blackhole bh) {
-        bh.consume(ArrayMax.max(numbers));
+    public void groovyArrayMaxFive(Blackhole bh) {
+        bh.consume(ArrayMax.max(five));
     }
 
     @Benchmark
-    public void arrayMaxAbs(Blackhole bh) {
-        bh.consume(ArrayMax.maxAbs(numbers));
+    public void groovyArrayMaxAbsFive(Blackhole bh) {
+        bh.consume(ArrayMax.maxAbs(five));
+    }
+
+    @Benchmark
+    public void groovyArrayMaxNinety(Blackhole bh) {
+        bh.consume(ArrayMax.max(ninety));
+    }
+
+    @Benchmark
+    public void groovyArrayMaxAbsNinety(Blackhole bh) {
+        bh.consume(ArrayMax.maxAbs(ninety));
     }
 
 //    @Benchmark
@@ -50,13 +80,23 @@ public class ArrayStreamsBenchmark {
 //    }
 
     @Benchmark
-    public void streamsMax(Blackhole bh) {
-        bh.consume(StreamsMax.max(numbers));
+    public void groovyStreamsMaxFive(Blackhole bh) {
+        bh.consume(StreamsMax.max(five));
     }
 
     @Benchmark
-    public void streamsMaxAbs(Blackhole bh) {
-        bh.consume(StreamsMax.maxAbs(numbers));
+    public void groovyStreamsMaxAbsFive(Blackhole bh) {
+        bh.consume(StreamsMax.maxAbs(five));
+    }
+
+    @Benchmark
+    public void groovyStreamsMaxNinety(Blackhole bh) {
+        bh.consume(StreamsMax.max(ninety));
+    }
+
+    @Benchmark
+    public void groovyStreamsMaxAbsNinety(Blackhole bh) {
+        bh.consume(StreamsMax.maxAbs(ninety));
     }
 
 //    @Benchmark
@@ -70,13 +110,23 @@ public class ArrayStreamsBenchmark {
 //    }
 
     @Benchmark
-    public void javaStreamsMax(Blackhole bh) {
-        bh.consume(JavaStreamsMax.max(numbers));
+    public void javaStreamsMaxFive(Blackhole bh) {
+        bh.consume(JavaStreamsMax.max(five));
     }
 
     @Benchmark
-    public void javaStreamsMaxAbs(Blackhole bh) {
-        bh.consume(JavaStreamsMax.maxAbs(numbers));
+    public void javaStreamsMaxNinety(Blackhole bh) {
+        bh.consume(JavaStreamsMax.max(ninety));
+    }
+
+    @Benchmark
+    public void javaStreamsMaxAbsFive(Blackhole bh) {
+        bh.consume(JavaStreamsMax.maxAbs(five));
+    }
+
+    @Benchmark
+    public void javaStreamsMaxAbsNinety(Blackhole bh) {
+        bh.consume(JavaStreamsMax.maxAbs(ninety));
     }
 
 }
